@@ -18,9 +18,9 @@
 
 
 
-NSString *const AHPhotoReaderShareButton = @"AHPhotoReaderShareButton";
-NSString *const AHPhotoReaderDownloadButton = @"AHPhotoReaderDownloadButton";
-NSString *const AHPhotoReaderCollectionButton = @"AHPhotoReaderCollectionButton";
+NSString *const JLPhotoReaderShareButton = @"JLPhotoReaderShareButton";
+NSString *const JLPhotoReaderDownloadButton = @"JLPhotoReaderDownloadButton";
+NSString *const JLPhotoReaderCollectionButton = @"JLPhotoReaderCollectionButton";
 
 @interface JLPhotoReader ()
 /**导航条*/
