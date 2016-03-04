@@ -10,6 +10,7 @@
 #import "Menu.h"
 #import "SDImageCache.h"
 #import "MWCommon.h"
+#import "MWGroupPhoto.h"
 
 @implementation Menu
 
@@ -169,6 +170,7 @@
 	NSMutableArray *photos = [[NSMutableArray alloc] init];
 	NSMutableArray *thumbs = [[NSMutableArray alloc] init];
     MWPhoto *photo, *thumb;
+    MWGroupPhoto *groupPhoto;
     BOOL displayActionButton = YES;
     BOOL displaySelectionButtons = NO;
     BOOL displayNavArrows = NO;
@@ -202,6 +204,11 @@
             photo = [MWPhoto photoWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"photo4" ofType:@"jpg"]]];
             photo.caption = @"Campervan";
 			[photos addObject:photo];
+            
+            groupPhoto = [MWGroupPhoto groupModelWithPhotos:@[photo,photo,photo,photo]];
+            
+            [photos addObject:groupPhoto];
+            
             // Options
             enableGrid = NO;
 			break;

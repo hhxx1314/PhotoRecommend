@@ -31,6 +31,7 @@
     
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
     label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor orangeColor];
     label.textAlignment = NSTextAlignmentLeft;
     [self.contentView addSubview:label];
     self.descLabel = label;

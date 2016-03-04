@@ -72,4 +72,10 @@
 - (void)showNextPhotoAnimated:(BOOL)animated;
 - (void)showPreviousPhotoAnimated:(BOOL)animated;
 
+- (void)updateNavigation;
+- (void)setControlsHidden:(BOOL)hidden animated:(BOOL)animated permanent:(BOOL)permanent;
+- (void)layoutVisiblePages;
+- (CGRect)frameForToolbarAtOrientation:(UIInterfaceOrientation)orientation;
+- (id<MWPhoto>)photoAtIndex:(NSUInteger)index;
+
 @end

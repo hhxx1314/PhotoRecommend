@@ -63,6 +63,7 @@
 		3461FD631C87037700FF3015 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3461FD511C87037700FF3015 /* video.mp4 */; };
 		3461FD641C87037700FF3015 /* video_thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3461FD521C87037700FF3015 /* video_thumb.jpg */; };
 		3461FD671C87038200FF3015 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3461FD661C87038200FF3015 /* Menu.m */; };
+		347A233A1C89E8A600729E00 /* JLPhotoReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 347A23391C89E8A600729E00 /* JLPhotoReader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,6 +162,8 @@
 		3461FD521C87037700FF3015 /* video_thumb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = video_thumb.jpg; sourceTree = "<group>"; };
 		3461FD651C87038200FF3015 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		3461FD661C87038200FF3015 /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
+		347A23381C89E8A600729E00 /* JLPhotoReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLPhotoReader.h; sourceTree = "<group>"; };
+		347A23391C89E8A600729E00 /* JLPhotoReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLPhotoReader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +287,8 @@
 				3461FD201C87023C00FF3015 /* recommend */,
 				3461FD291C87023C00FF3015 /* UIImage+MWPhotoBrowser.h */,
 				3461FD2A1C87023C00FF3015 /* UIImage+MWPhotoBrowser.m */,
+				347A23381C89E8A600729E00 /* JLPhotoReader.h */,
+				347A23391C89E8A600729E00 /* JLPhotoReader.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -453,6 +458,7 @@
 				3461FCFC1C8701FE00FF3015 /* SDWebImageCompat.m in Sources */,
 				3461FD311C87023C00FF3015 /* MWTapDetectingImageView.m in Sources */,
 				3461FCBD1C8701D300FF3015 /* AppDelegate.m in Sources */,
+				347A233A1C89E8A600729E00 /* JLPhotoReader.m in Sources */,
 				3461FCBA1C8701D300FF3015 /* main.m in Sources */,
 				3461FD351C87023C00FF3015 /* MWPhoto+Recommand.m in Sources */,
 				3461FD331C87023C00FF3015 /* MWZoomingScrollView.m in Sources */,
@@ -572,6 +578,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "MW-Recommand/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.JL.MW-Recommand";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -583,6 +590,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "MW-Recommand/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.JL.MW-Recommand";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -608,6 +616,7 @@
 				3461FCCE1C8701D300FF3015 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
