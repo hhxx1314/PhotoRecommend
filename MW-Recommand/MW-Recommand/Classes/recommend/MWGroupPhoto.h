@@ -25,4 +25,6 @@
 
 + (instancetype)groupModelWithPhotos:(NSArray<MWPhoto *> *)photos;
 
+- (void)loadAllImageWithPhotos;
+
 @end

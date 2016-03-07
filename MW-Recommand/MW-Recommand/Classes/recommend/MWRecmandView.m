@@ -32,7 +32,9 @@ static NSString  * const MWRecmandView_Identifer = @"MWRecmandView-cell";
 
 @implementation MWRecmandView
 
-
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
     if (self = [super initWithCoder:aDecoder]) {

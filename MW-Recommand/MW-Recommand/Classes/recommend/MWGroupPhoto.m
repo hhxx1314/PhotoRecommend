@@ -33,7 +33,13 @@
     return _pri_dataSource.copy;
 }
 
-
+- (void)loadAllImageWithPhotos{
+    [self.pri_dataSource enumerateObjectsUsingBlock:^(MWPhoto * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (!obj.underlyingImage) {
+            [obj loadUnderlyingImageAndNotify];
+        }
+    }];
+}
 - (UIImage *)underlyingImage {
     return nil;
 }

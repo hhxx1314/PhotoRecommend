@@ -13,6 +13,7 @@
 #import "SDImageCache.h"
 #import "UIImage+MWPhotoBrowser.h"
 
+#import "MWGroupPhoto.h"
 #define PADDING                  10
 
 static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
@@ -713,7 +714,11 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 	}
 	return nil;
 }
-
+/**
+ *  预加载
+ *
+ *  @param photo 下一个photo对象
+ */
 - (void)loadAdjacentPhotosIfNecessary:(id<MWPhoto>)photo {
     MWZoomingScrollView *page = [self pageDisplayingPhoto:photo];
     if (page) {
@@ -723,6 +728,10 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
             if (pageIndex > 0) {
                 // Preload index - 1
                 id <MWPhoto> photo = [self photoAtIndex:pageIndex-1];
+                if ([photo isKindOfClass:[MWGroupPhoto class]]) {
+                    MWGroupPhoto *group = (MWGroupPhoto *)photo;
+                    [group loadAllImageWithPhotos];
+                }
                 if (![photo underlyingImage]) {
                     [photo loadUnderlyingImageAndNotify];
                     MWLog(@"Pre-loading image at index %lu", (unsigned long)pageIndex-1);
@@ -731,6 +740,10 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
             if (pageIndex < [self numberOfPhotos] - 1) {
                 // Preload index + 1
                 id <MWPhoto> photo = [self photoAtIndex:pageIndex+1];
+                if ([photo isKindOfClass:[MWGroupPhoto class]]) {
+                    MWGroupPhoto *group = (MWGroupPhoto *)photo;
+                    [group loadAllImageWithPhotos];
+                }
                 if (![photo underlyingImage]) {
                     [photo loadUnderlyingImageAndNotify];
                     MWLog(@"Pre-loading image at index %lu", (unsigned long)pageIndex+1);
