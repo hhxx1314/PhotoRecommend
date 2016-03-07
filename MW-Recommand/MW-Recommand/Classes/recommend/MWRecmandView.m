@@ -47,6 +47,10 @@ static NSString  * const MWRecmandView_Identifer = @"MWRecmandView-cell";
     return self;
 }
 - (void)initialisation{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleMWPhotoLoadingDidEndNotification:)
+                                                 name:MWPHOTO_LOADING_DID_END_NOTIFICATION
+                                               object:nil];
     self.backgroundColor = [UIColor blackColor];
     self.multipleTouchEnabled = NO;
     _flowLayout = [[UICollectionViewFlowLayout alloc]init];
@@ -81,13 +85,7 @@ static NSString  * const MWRecmandView_Identifer = @"MWRecmandView-cell";
 - (void)setGroupPhoto:(MWGroupPhoto *)groupPhoto{
     if (_groupPhoto != groupPhoto && groupPhoto != nil) {
         _groupPhoto = groupPhoto;
-        [_groupPhoto.photos enumerateObjectsUsingBlock:^(MWPhoto * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//            [_photoBrowser imageForPhoto:_photo]
-            if ([obj underlyingImage] == nil) {
-                [obj loadUnderlyingImageAndNotify];
-            }
-            
-        }];
+        
         if (UIEdgeInsetsEqualToEdgeInsets(_groupPhoto.sectionInset, UIEdgeInsetsZero)) {
             _lineSpace = Margin;
             _rowSpace = Margin;
@@ -122,11 +120,6 @@ static NSString  * const MWRecmandView_Identifer = @"MWRecmandView-cell";
     CGFloat space = _rowSpace *2 + 2;
     CGFloat itemW = (width - space)/2;
     CGFloat itemH = itemW * 3/4 + 10 + [UIFont systemFontOfSize:12].lineHeight;
-//    if (indexPath.item == 0) {
-//        return CGSizeMake(collectionView.bounds.size.width-20, itemW);
-//    }else {
-//        return CGSizeMake(itemW, itemW);
-//    }
     return CGSizeMake(itemW, itemH);
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -136,6 +129,17 @@ static NSString  * const MWRecmandView_Identifer = @"MWRecmandView-cell";
     if (photo.clickCellBlock) {
         photo.clickCellBlock(subModel);
     }
+}
+- (void)handleMWPhotoLoadingDidEndNotification:(NSNotification *)notification {
+    id <MWPhoto> photo = [notification object];
+    NSLog(@"%@",[NSThread currentThread]);
+    for (MWRecmandCell *cell in [self.recommView visibleCells]) {
+        if (cell.photo == photo) {
+            cell.photo = photo;
+            break;
+        }
+    }
+
 }
 
 @end

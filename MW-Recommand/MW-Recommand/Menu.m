@@ -180,7 +180,7 @@
 	switch (indexPath.row) {
 		case 0:
             // Photos
-            photo = [MWPhoto photoWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"photo2" ofType:@"jpg"]]];
+            photo = [MWPhoto photoWithURL:[NSURL URLWithString:@"http://img3.imgtn.bdimg.com/it/u=3841157212,2135341815&fm=21&gp=0.jpg"]];
             photo.caption = @"The London Eye is a giant Ferris wheel situated on the banks of the River Thames, in London, England.";
 			[photos addObject:photo];
             // Options
@@ -205,7 +205,23 @@
             photo.caption = @"Campervan";
 			[photos addObject:photo];
             
-            groupPhoto = [MWGroupPhoto groupModelWithPhotos:@[photo,photo,photo,photo]];
+            
+            
+             
+            MWPhoto *p1 = [MWPhoto photoWithURL:[NSURL URLWithString:@"http://img4.3lian.com/sucai/img6/230/29.jpg"]];
+            //点击cell拿到的数据
+            p1.recommendModel = [NSURL URLWithString:@"www.autohome.com.cn"];
+            //点击cell执行的代码
+            p1.clickCellBlock = ^(id obj){
+                //自己需要的数据--->obj ==[NSURL URLWithString:@"www.autohome.com.cn"];
+                
+            };
+            
+            MWPhoto *p2 = [MWPhoto photoWithURL:[NSURL URLWithString:@"http://www.gdsoftga.com/uploads/allimg/120516/2-120516152643a5.jpg"]];
+            MWPhoto *p3 = [MWPhoto photoWithURL:[NSURL URLWithString:@"http://pic1.ooopic.com/uploadfilepic/sheji/2010-01-13/OOOPIC_1982zpwang407_20100113f68118f451f282f4.jpg"]];
+            MWPhoto *p4 = [MWPhoto photoWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"photo5" ofType:@"jpg"]]];
+            
+            groupPhoto = [MWGroupPhoto groupModelWithPhotos:@[p1,p2,p3,p4]];
             
             [photos addObject:groupPhoto];
             
@@ -270,7 +286,7 @@
         }
 		case 5:
             // Photos
-			[photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3567/3523321514_371d9ac42f_b.jpg"]]];
+			[photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://img4.3lian.com/sucai/img6/230/29.jpg"]]];
 			[photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3629/3339128908_7aecabc34b_b.jpg"]]];
 			[photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3364/3338617424_7ff836d55f_b.jpg"]]];
 			[photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3590/3329114220_5fbc5bc92b_b.jpg"]]];
